@@ -1,17 +1,55 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button>Back</ion-back-button>
+    </ion-buttons>
+    <ion-title>Komikdot</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ng-container *ngIf="(dataDescription$ | async) as items">
+    <img class="img-card" [src]="items.image" [alt]="items.title"/>
+    <ion-text class="text-title">
+      <div class="ml-4">
+        <h1 class="font-bold capitalize">{{items.title}}</h1>
+        <p class="text-lg text-gray-500">{{items.subTitle}}</p>
+      </div>
+        <hr class="text-white my-2">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+      <div class="mx-4">
+        <h3 class="font-bold">Deskripsi</h3>
+        <p class="text-sm text-gray-500 mb-4">{{items.description}}</p>
+
+        <div class="space-y-2">
+          <p class="text-sm font-medium capitalize">Judul Indonesia : {{items.subject}}</p>
+          <p class="text-sm font-medium">Jenis Komik : {{items.type}}</p>
+<!--          <p class="text-sm font-medium">Konsep Cerita : <span>{{items.category}}</span></p>-->
+          <p class="text-sm font-medium">Komikus : {{items.author}}</p>
+          <p class="text-sm font-medium">Jumlah Pembaca : {{items.totalReader}}</p>
+          <p class="text-sm font-medium">Cara Baca : {{items.howToRead}}</p>
+        </div>
+      </div>
+        <hr class="text-white my-2">
+      <div class="ml-4 mb-4">
+        <h3 class="font-bold">List Chapter</h3>
+        <p class="text-sm text-gray-500">Nikmati setiap chapternya ya</p>
+      </div>
+    </ion-text>
+    <ion-item *ngFor="let list of chapterList$ | async; let i = index">
+      <div class="flex flex-col">
+      <ion-label class="capitalize">Chapter {{list.chapter}}</ion-label>
+      <p class="text-xs text-gray-500">{{list.createdAt}}</p>
+      </div>
+      <ion-label slot="end" color="secondary" (click)="goToChapter(list._id)">Baca</ion-label>
+    </ion-item>
+
+
+    <ion-footer collapse="fade">
+      <ion-toolbar class="flex flex-col">
+        <p class="text-sm text-center text-gray-500">Copyright @ Komikdot All right reserved.</p>
+      </ion-toolbar>
+    </ion-footer>
+  </ng-container>
+
 </ion-content>

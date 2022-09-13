@@ -1,0 +1,23 @@
+[
+    {
+      "title": "one piece",
+      "subTitle": "op",
+      "description": "Raja Bajak Laut mengkonfirmasi keberadaan harta terbesar yang disebut One Piece.",
+      "subject": "OP",
+      "image": "https://thumbnail.komiku.id/wp-content/uploads/2019/02/Komik-One-Piece.jpg?w=225&quality=60",
+      "type": "manga",
+      "category": ["comedy", "drama", "actionhero", "series", "adventure"],
+      "author": "Eiichiro Oda",
+      "totalReader": 222433,
+      "howToRead": "Kanan ke Kiri",
+      "chapters": [
+        { "name": "chapter 1", "id": "123243232", "lastUpdate": "10-05-2022" },
+        { "name": "chapter 2", "id": "dfesdfsc", "lastUpdate": "10-05-2022"  },
+        { "name": "chapter 3", "id": "232rwesds", "lastUpdate": "10-05-2022"  },
+        { "name": "chapter 4", "id": "4232efsrfr", "lastUpdate": "10-05-2022"  },
+        { "name": "chapter 5", "id": "232fewfsd", "lastUpdate": "10-05-2022"  },
+        { "name": "chapter 6", "id": "fsf24434sd", "lastUpdate": "10-05-2022"  },
+        { "name": "chapter 6", "id": "232sdsdfsd", "lastUpdate": "10-05-2022"  }
+      ]
+    }
+]

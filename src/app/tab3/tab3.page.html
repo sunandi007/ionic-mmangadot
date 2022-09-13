@@ -1,17 +1,23 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="back()">Back</ion-back-button>
+    </ion-buttons>
     <ion-title>
-      Tab 3
+      One Piece
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ng-container *ngIf="dataComics$ | async as comics">
+  <ion-header collapse="condense" class="mt-2">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">One Piece {{comics.chapter}}</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    <ng-container *ngFor="let item of comics.slides">
+      <img [src]="item" [alt]="comics.chapter">
+    </ng-container>
+  </ng-container>
 </ion-content>

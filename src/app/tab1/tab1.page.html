@@ -1,17 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Komikdot</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-text>
+      <div class="ml-4">
+        <h2>Komik Terpopuler</h2>
+        <p class="text-sm text-gray-500">Ribuan orang telah membaca komik ini</p>
+      </div>
+    </ion-text>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ng-container *ngFor="let item of mangaList$ | async">
+    <ion-card [routerLink]="['/tabs/' + item.slug]">
+      <img class="img-card" [src]="item.image" [alt]="item.title" alt="head-image"/>
+      <ion-card-header>
+        <ion-card-title class="capitalize">{{item.title}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        Raja Bajak Laut mengkonfirmasi keberadaan harta terbesar yang disebut One Piece.
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
 </ion-content>
